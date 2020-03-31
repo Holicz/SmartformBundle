@@ -21,6 +21,11 @@ final class DobryProgramatorSmartformExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $definition = $container->getDefinition(SmartformExtension::class);
+
+        if (!array_key_exists('client_id', $config)) {
+            return;
+        }
+
         $definition->replaceArgument(0, $config['client_id']);
     }
 
