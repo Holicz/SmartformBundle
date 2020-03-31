@@ -1,7 +1,7 @@
 {
     "name": "dobryprogramator/smartform-bundle",
     "description": "Bundle to connect Symfony with www.smartform.cz",
-    "type": "library",
+    "type": "symfony-bundle",
     "license": "MIT",
     "minimum-stability": "stable",
     "authors": [
