@@ -5,6 +5,11 @@ Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
+Requirements
+----------------------------------
+* PHP 7.4
+* Symfony 5
+
 Applications that use Symfony Flex
 ----------------------------------
 

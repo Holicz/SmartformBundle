@@ -3,3 +3,9 @@ parameters:
         max
     paths:
         - src
+    excludes_analyse:
+        - src/DependencyInjection/Configuration.php
+    ignoreErrors:
+    	-
+    		message: '#with no value type specified in iterable type array.#'
+    		path: src/DependencyInjection/DobryProgramatorSmartformExtension.php
