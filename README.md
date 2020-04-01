@@ -9,6 +9,7 @@ Requirements
 ----------------------------------
 * PHP 7.4
 * Symfony 5
+* Twig 3
 
 Applications that use Symfony Flex
 ----------------------------------
