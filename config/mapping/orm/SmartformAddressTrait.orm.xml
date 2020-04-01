@@ -3,7 +3,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <mapped-superclass name="DobryProgramator\SmartformBundle\Entity\AbstractSmartformAddress">
+    <mapped-superclass name="DobryProgramator\SmartformBundle\Entity\SmartformAddressTrait">
         <field name="code"/>
 
         <field name="latitude"/>
