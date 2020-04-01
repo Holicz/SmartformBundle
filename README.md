@@ -168,4 +168,74 @@ final class AddressType extends AbstractType
 }
 ```
 
+DataMapper
+-----------
+To transport the data between DTO and entity
+```php
+<?php
 
+declare(strict_types=1);
+
+namespace App\Form\DataMapper;
+
+use App\Entity\Address;
+use App\Form\Model\AddressModel;
+use DobryProgramator\SmartformBundle\Exception\SmartformFieldNotFilledException;
+use DobryProgramator\SmartformBundle\Form\DataMapper\SmartformAddressMapper;
+
+final class AddressDataMapper
+{
+    private SmartformAddressMapper $smartformAddressMapper;
+
+    public function __construct(SmartformAddressMapper $smartformAddressMapper)
+    {
+        $this->smartformAddressMapper = $smartformAddressMapper;
+    }
+
+    /**
+     * @throws SmartformFieldNotFilledException
+     */
+    public function mapEntityFromModel(Address $entity, AddressModel $model): void
+    {
+        $this->smartformAddressMapper->mapEntityFromModel($entity, $model->address);
+    }
+
+    public function mapModelFromEntity(Address $entity, AddressModel $model): void
+    {
+        $this->smartformAddressMapper->mapModelFromEntity($entity, $model->address);
+    }
+}
+```
+
+Controller
+----------
+```php
+...
+$addressModel = new AddressModel();
+$addressForm = $this->createForm(AddressType::class, $addressModel);
+
+$addressForm->handleRequest($request);
+if($addressForm->isSubmitted() && $addressForm->isValid()) {
+    $address = new Address();
+    $this->addressDataMapper->mapEntityFromModel($address, $addressModel);
+    
+    // Do whatever you need with the entity, for example persist to the databas
+}
+...
+```
+
+Template
+--------
+```twig
+{{ form_start(address_form) }}
+    {% if address_form.address.vars.errors.count %}
+        <small class="form-text text-danger">
+            Address is not valid
+        </small>
+    {% endif %}
+    Address
+    {{ form_widget(address_form.address) }}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+{{ form_end(address_form) }}
+```
