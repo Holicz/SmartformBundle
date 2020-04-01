@@ -68,6 +68,8 @@ Usage
 =====
 For more detailed look into the bundle visit the [demo repository](https://github.com/DobryProgramator/SmartformBundleDemo).
 
+**This bundle supports only using forms with DTO as explained [here](https://blog.martinhujer.cz/symfony-forms-with-request-objects/).**
+
 Entity
 ------
 ```php
