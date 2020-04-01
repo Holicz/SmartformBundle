@@ -13,8 +13,8 @@
     "require": {
         "php": "^7.4",
         "holicz/simple-exception": "^1.1",
-        "symfony/form": "^5.0",
-        "symfony/validator": "^5.0",
+        "symfony/form": "^3.4|^4.4|^5.0",
+        "symfony/validator": "^3.4|^4.4|^5.0",
         "thecodingmachine/safe": "^1.1",
         "twig/twig": "^3.0"
     },
