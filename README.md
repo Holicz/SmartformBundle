@@ -227,6 +227,8 @@ if($addressForm->isSubmitted() && $addressForm->isValid()) {
 Template
 --------
 ```twig
+{{ smartform_init() }}
+
 {{ form_start(address_form) }}
     {% if address_form.address.vars.errors.count %}
         <small class="form-text text-danger">
