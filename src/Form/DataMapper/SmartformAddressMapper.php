@@ -46,6 +46,7 @@ final class SmartformAddressMapper
 
     public function mapModelFromEntity(AbstractSmartformAddress $abstractAddress, SmartformAddressModel $abstractAddressModel): void
     {
+        $abstractAddressModel->address = $abstractAddress->__toString();
         $abstractAddressModel->code = $abstractAddress->getCode();
         $abstractAddressModel->latitude = $abstractAddress->getLatitude();
         $abstractAddressModel->longitude = $abstractAddress->getLongitude();

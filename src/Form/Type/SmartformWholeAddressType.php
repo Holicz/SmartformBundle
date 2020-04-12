@@ -27,8 +27,7 @@ class SmartformWholeAddressType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'class' => 'smartform-whole-address',
-                    ],
-                    'mapped' => false
+                    ]
                 ]
             )
             ->add(

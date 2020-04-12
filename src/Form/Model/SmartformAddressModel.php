@@ -8,6 +8,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class SmartformAddressModel
 {
+    public ?string $address = null;
+
     /**
      * @Assert\NotBlank(message="Kód z RÚIAN databáze je povinný")
      * @Assert\Length(max="255", maxMessage="Kód z RÚIAN databáze může mít maximálně {{ limit }} znaků")
