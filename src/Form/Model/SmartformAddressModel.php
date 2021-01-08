@@ -81,4 +81,34 @@ final class SmartformAddressModel
      * @Assert\Length(max="255", maxMessage="Země může mít maximálně {{ limit }} znaků")
      */
     public ?string $country = null;
+
+    public static function createEmpty(): self
+    {
+        return new self();
+    }
+
+    /**
+     * Create from array you get by submitting the form
+     *
+     * @param array<string, string> $data
+     */
+    public static function createFromArray(array $data): self
+    {
+        $smartformAddressModel = new self();
+
+        $smartformAddressModel->code = $data['code'];
+        $smartformAddressModel->latitude = $data['latitude'];
+        $smartformAddressModel->longitude = $data['longitude'];
+        $smartformAddressModel->street = $data['street'];
+        $smartformAddressModel->cityPart = $data['city_part'];
+        $smartformAddressModel->houseNumber = $data['house_number'];
+        $smartformAddressModel->orientationNumber = $data['orientation_number'];
+        $smartformAddressModel->city = $data['city'];
+        $smartformAddressModel->zipCode = $data['zip'];
+        $smartformAddressModel->district = $data['district'];
+        $smartformAddressModel->region = $data['region'];
+        $smartformAddressModel->country = $data['country'];
+
+        return $smartformAddressModel;
+    }
 }
