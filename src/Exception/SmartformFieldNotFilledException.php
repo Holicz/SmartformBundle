@@ -9,15 +9,11 @@ use holicz\SimpleException\ExceptionContext;
 
 final class SmartformFieldNotFilledException extends BaseException
 {
-    /**
-     * @param array<int, mixed> $parameters
-     */
-    public function __construct(array $parameters = [])
+    public function __construct()
     {
         $exceptionContext = new ExceptionContext(
             'Při zadávání adresy nastala chyba',
             'Some Smartform field was not filled',
-            $parameters,
             500 // HTTP status code
         );
 
