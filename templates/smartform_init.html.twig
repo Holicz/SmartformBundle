@@ -4,4 +4,9 @@
     smartform.beforeInit = function () {
         smartform.setClientId('{{ client_id }}');
     }
+    smartform.afterInit = function () {
+        {% for class in classes %}
+        smartform.getInstance('{{ class }}');
+        {% endfor %}
+    }
 </script>

@@ -26,7 +26,7 @@ class SmartformWholeAddressType extends AbstractType
                 [
                     'label' => false,
                     'attr' => [
-                        'class' => 'smartform-whole-address',
+                        'class' => 'smartform-whole-address '. $options['class'],
                     ]
                 ]
             )
@@ -34,84 +34,84 @@ class SmartformWholeAddressType extends AbstractType
                 'code',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-CODE']
+                    'attr' => ['class' => 'smartform-field-CODE '. $options['class']]
                 ]
             )
             ->add(
                 'latitude',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-GPS_LAT']
+                    'attr' => ['class' => 'smartform-field-GPS_LAT '. $options['class']]
                 ]
             )
             ->add(
                 'longitude',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-GPS_LONG']
+                    'attr' => ['class' => 'smartform-field-GPS_LONG '. $options['class']]
                 ]
             )
             ->add(
                 'street',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-STREET'],
+                    'attr' => ['class' => 'smartform-field-STREET '. $options['class']],
                 ]
             )
             ->add(
                 'cityPart',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-PART'],
+                    'attr' => ['class' => 'smartform-field-PART '. $options['class']],
                 ]
             )
             ->add(
                 'houseNumber',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-NUMBER_POPISNE'],
+                    'attr' => ['class' => 'smartform-field-NUMBER_POPISNE '. $options['class']],
                 ]
             )
             ->add(
                 'orientationNumber',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-NUMBER_ORIENTACNI'],
+                    'attr' => ['class' => 'smartform-field-NUMBER_ORIENTACNI '. $options['class']],
                 ]
             )
             ->add(
                 'city',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-CITY'],
+                    'attr' => ['class' => 'smartform-field-CITY '. $options['class']],
                 ]
             )
             ->add(
                 'zipCode',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-ZIP'],
+                    'attr' => ['class' => 'smartform-field-ZIP '. $options['class']],
                 ]
             )
             ->add(
                 'district',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-DISTRICT']
+                    'attr' => ['class' => 'smartform-field-DISTRICT '. $options['class']]
                 ]
             )
             ->add(
                 'region',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-REGION']
+                    'attr' => ['class' => 'smartform-field-REGION '. $options['class']]
                 ]
             )
             ->add(
                 'country',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-COUNTRY']
+                    'attr' => ['class' => 'smartform-field-COUNTRY '. $options['class']]
                 ]
             )
         ;
@@ -122,7 +122,8 @@ class SmartformWholeAddressType extends AbstractType
         $resolver->setDefaults(
             [
                 'data_class' => SmartformAddressModel::class,
-                'error_bubbling' => false
+                'error_bubbling' => false,
+                'class' => 'default',
             ]
         );
     }
