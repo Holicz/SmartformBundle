@@ -26,7 +26,7 @@ class SmartformWholeAddressType extends AbstractType
                 [
                     'label' => false,
                     'attr' => [
-                        'class' => 'smartform-whole-address '. $options['class'],
+                        'class' => 'smartform-whole-address smartform-instance-'. $options['class'],
                     ]
                 ]
             )
@@ -34,84 +34,84 @@ class SmartformWholeAddressType extends AbstractType
                 'code',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-CODE '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-CODE smartform-instance-'. $options['class']]
                 ]
             )
             ->add(
                 'latitude',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-GPS_LAT '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-GPS_LAT smartform-instance-'. $options['class']]
                 ]
             )
             ->add(
                 'longitude',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-GPS_LONG '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-GPS_LONG smartform-instance-'. $options['class']]
                 ]
             )
             ->add(
                 'street',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-STREET '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-STREET smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'cityPart',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-PART '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-PART smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'houseNumber',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-NUMBER_POPISNE '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-NUMBER_POPISNE smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'orientationNumber',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-NUMBER_ORIENTACNI '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-NUMBER_ORIENTACNI smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'city',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-CITY '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-CITY smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'zipCode',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-ZIP '. $options['class']],
+                    'attr' => ['class' => 'smartform-field-ZIP smartform-instance-'. $options['class']],
                 ]
             )
             ->add(
                 'district',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-DISTRICT '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-DISTRICT smartform-instance-'. $options['class']]
                 ]
             )
             ->add(
                 'region',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-REGION '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-REGION smartform-instance-'. $options['class']]
                 ]
             )
             ->add(
                 'country',
                 HiddenType::class,
                 [
-                    'attr' => ['class' => 'smartform-field-COUNTRY '. $options['class']]
+                    'attr' => ['class' => 'smartform-field-COUNTRY smartform-instance-'. $options['class']]
                 ]
             )
         ;
