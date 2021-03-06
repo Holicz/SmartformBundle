@@ -33,6 +33,9 @@ final class SmartformExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param array<int, string> $classes
+     */
     public function smartformInit(Environment $environment,array $classes = ['default']): string
     {
         return $environment->render(

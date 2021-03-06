@@ -5,34 +5,15 @@ declare(strict_types=1);
 namespace DobryProgramator\SmartformBundle\Form\DataMapper;
 
 use DobryProgramator\SmartformBundle\Entity\AbstractSmartformAddress;
-use DobryProgramator\SmartformBundle\Exception\SmartformFieldNotFilledException;
 use DobryProgramator\SmartformBundle\Form\Model\SmartformAddressModel;
 
 final class SmartformAddressMapper
 {
-    /**
-     * @throws SmartformFieldNotFilledException
-     */
     public function mapEntityFromModel(AbstractSmartformAddress $entity, SmartformAddressModel $model): void
     {
-        if (
-            !$model->code ||
-            !$model->latitude ||
-            !$model->longitude ||
-            !$model->houseNumber ||
-            !$model->city ||
-            !$model->zipCode ||
-            !$model->district ||
-            !$model->region ||
-            !$model->country
-        ) {
-            throw new SmartformFieldNotFilledException();
-        }
-
         $entity->setCode($model->code);
         $entity->setLatitude($model->latitude);
         $entity->setLongitude($model->longitude);
-        /** @var string $street */
         $street = $model->street ?: $model->cityPart;
         $entity->setStreet($street);
         $entity->setHouseNumber($model->houseNumber);

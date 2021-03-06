@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DobryProgramator\SmartformBundle\Entity;
 
+use DobryProgramator\SmartformBundle\Form\Model\SmartformAddressModel;
+
 abstract class AbstractSmartformAddress implements SmartformAddressInterface
 {
     private string $code;
@@ -158,5 +160,21 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
     public function getCountry(): string
     {
         return $this->country;
+    }
+
+    public function populateFromModel(SmartformAddressModel $model): void
+    {
+        $this->setCode($model->code);
+        $this->setLatitude($model->latitude);
+        $this->setLongitude($model->longitude);
+        $street = $model->street ?: $model->cityPart;
+        $this->setStreet($street);
+        $this->setHouseNumber($model->houseNumber);
+        $this->setOrientationNumber($model->orientationNumber);
+        $this->setCity($model->city);
+        $this->setZipCode($model->zipCode);
+        $this->setDistrict($model->district);
+        $this->setRegion($model->region);
+        $this->setCountry($model->country);
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DobryProgramator\SmartformBundle\Entity;
 
+use DobryProgramator\SmartformBundle\Form\Model\SmartformAddressModel;
+
 interface SmartformAddressInterface
 {
     public function setCode(string $code): void;
@@ -53,4 +55,6 @@ interface SmartformAddressInterface
     public function setCountry(string $country): void;
 
     public function getCountry(): string;
+
+    public function populateFromModel(SmartformAddressModel $model): void;
 }
