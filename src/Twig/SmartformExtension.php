@@ -33,12 +33,13 @@ final class SmartformExtension extends AbstractExtension
         ];
     }
 
-    public function smartformInit(Environment $environment): string
+    public function smartformInit(Environment $environment,array $classes = ['default']): string
     {
         return $environment->render(
             '@DobryProgramatorSmartform/smartform_init.html.twig',
             [
-                'client_id' => $this->clientId
+                'client_id' => $this->clientId,
+                'classes' => $classes
             ]
         );
     }
