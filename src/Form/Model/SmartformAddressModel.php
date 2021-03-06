@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DobryProgramator\SmartformBundle\Form\Model;
 
+use DobryProgramator\SmartformBundle\Entity\AbstractSmartformAddress;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class SmartformAddressModel
@@ -85,6 +86,26 @@ final class SmartformAddressModel
     public static function createEmpty(): self
     {
         return new self();
+    }
+
+    public static function createFromEntity(AbstractSmartformAddress $entity): self
+    {
+        $model = self::createEmpty();
+
+        $model->address = $entity->__toString();
+        $model->code = $entity->getCode();
+        $model->latitude = $entity->getLatitude();
+        $model->longitude = $entity->getLongitude();
+        $model->street = $entity->getStreet();
+        $model->houseNumber = $entity->getHouseNumber();
+        $model->orientationNumber = $entity->getOrientationNumber();
+        $model->district = $entity->getDistrict();
+        $model->city = $entity->getCity();
+        $model->zipCode = $entity->getZipCode();
+        $model->region = $entity->getRegion();
+        $model->country = $entity->getCountry();
+
+        return $model;
     }
 
     /**
