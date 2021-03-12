@@ -88,7 +88,7 @@ final class SmartformAddressModel
         return new self();
     }
 
-    public static function createFromEntity(AbstractSmartformAddress $entity): self
+    public static function mapFromModel(AbstractSmartformAddress $entity): self
     {
         $model = self::createEmpty();
 
