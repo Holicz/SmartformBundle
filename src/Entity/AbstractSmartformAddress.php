@@ -162,7 +162,7 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         return $this->country;
     }
 
-    public function populateFromModel(SmartformAddressModel $model): void
+    public function mapFromModel(SmartformAddressModel $model): void
     {
         $this->setCode($model->code);
         $this->setLatitude($model->latitude);
