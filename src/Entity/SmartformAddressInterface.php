@@ -56,5 +56,5 @@ interface SmartformAddressInterface
 
     public function getCountry(): string;
 
-    public function populateFromModel(SmartformAddressModel $model): void;
+    public function mapFromModel(SmartformAddressModel $model): void;
 }
