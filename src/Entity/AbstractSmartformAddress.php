@@ -167,7 +167,7 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         $this->setCode($model->code);
         $this->setLatitude($model->latitude);
         $this->setLongitude($model->longitude);
-        $street = $model->street ?: $model->cityPart;
+        $street = $model->street ?? $model->cityPart;
         $this->setStreet($street);
         $this->setHouseNumber($model->houseNumber);
         $this->setOrientationNumber($model->orientationNumber);

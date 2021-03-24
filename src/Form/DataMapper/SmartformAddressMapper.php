@@ -14,7 +14,7 @@ final class SmartformAddressMapper
         $entity->setCode($model->code);
         $entity->setLatitude($model->latitude);
         $entity->setLongitude($model->longitude);
-        $street = $model->street ?: $model->cityPart;
+        $street = $model->street ?? $model->cityPart;
         $entity->setStreet($street);
         $entity->setHouseNumber($model->houseNumber);
         $entity->setOrientationNumber($model->orientationNumber);
