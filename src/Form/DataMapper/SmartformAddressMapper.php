@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace DobryProgramator\SmartformBundle\Form\DataMapper;
 
-use DobryProgramator\SmartformBundle\Entity\AbstractSmartformAddress;
+use DobryProgramator\SmartformBundle\Entity\SmartformAddressInterface;
 use DobryProgramator\SmartformBundle\Form\Model\SmartformAddressModel;
 
 final class SmartformAddressMapper
 {
-    public function mapEntityFromModel(AbstractSmartformAddress $entity, SmartformAddressModel $model): void
+    public function mapEntityFromModel(SmartformAddressInterface $entity, SmartformAddressModel $model): void
     {
         $entity->setCode($model->code);
         $entity->setLatitude($model->latitude);
@@ -25,7 +25,7 @@ final class SmartformAddressMapper
         $entity->setCountry($model->country);
     }
 
-    public function mapModelFromEntity(AbstractSmartformAddress $abstractAddress, SmartformAddressModel $abstractAddressModel): void
+    public function mapModelFromEntity(SmartformAddressInterface $abstractAddress, SmartformAddressModel $abstractAddressModel): void
     {
         $abstractAddressModel->address = $abstractAddress->__toString();
         $abstractAddressModel->code = $abstractAddress->getCode();
