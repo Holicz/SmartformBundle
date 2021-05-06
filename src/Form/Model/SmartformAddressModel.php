@@ -33,7 +33,7 @@ final class SmartformAddressModel
      * @Assert\Expression("this.street or this.cityPart", message="Ulice je povinná")
      * @Assert\Length(max="255", maxMessage="Ulice může mít maximálně {{ limit }} znaků")
      */
-    public string $street;
+    public ?string $street = null;
 
     /**
      * Important because Smartform sometimes puts street in the city_part attribute
