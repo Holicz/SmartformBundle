@@ -16,6 +16,8 @@
 
         <field name="orientationNumber" nullable="true"/>
 
+        <field name="evidenceNumber" nullable="true"/>
+
         <field name="city"/>
 
         <field name="zipCode" length="5"/>

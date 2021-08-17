@@ -80,6 +80,13 @@ class SmartformWholeAddressType extends AbstractType
                 ]
             )
             ->add(
+                'evidenceNumber',
+                HiddenType::class,
+                [
+                    'attr' => ['class' => 'smartform-field-NUMBER_EVIDENCNI smartform-instance-'. $options['class']],
+                ]
+            )
+            ->add(
                 'city',
                 HiddenType::class,
                 [

@@ -20,6 +20,8 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
 
     private ?string $orientationNumber;
 
+    private ?string $evidenceNumber;
+
     private string $city;
 
     private string $zipCode;
@@ -95,13 +97,27 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         return $this->orientationNumber;
     }
 
+    public function setEvidenceNumber(?string $evidenceNumber): void
+    {
+        $this->evidenceNumber = $evidenceNumber;
+    }
+
+    public function getEvidenceNumber(): ?string
+    {
+        return $this->evidenceNumber;
+    }
+
     public function getBuildingNumber(): string
     {
-        if (!$this->getOrientationNumber()) {
-            return $this->getHouseNumber();
+        if ($this->getOrientationNumber()) {
+            return $this->getHouseNumber() . '/' . $this->getOrientationNumber();
         }
 
-        return $this->getHouseNumber() . '/' . $this->getOrientationNumber();
+        if ($this->getEvidenceNumber()) {
+            return 'ev.č. ' . $this->getEvidenceNumber();
+        }
+
+        return $this->getHouseNumber();
     }
 
     public function getStreetAndBuildingNumber(): string
@@ -176,5 +192,6 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         $this->setDistrict($model->district);
         $this->setRegion($model->region);
         $this->setCountry($model->country);
+        $this->setEvidenceNumber($model->evidenceNumber);
     }
 }

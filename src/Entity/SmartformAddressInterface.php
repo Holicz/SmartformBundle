@@ -32,6 +32,10 @@ interface SmartformAddressInterface
 
     public function getOrientationNumber(): ?string;
 
+    public function setEvidenceNumber(?string $evidenceNumber): void;
+
+    public function getEvidenceNumber(): ?string;
+
     public function getBuildingNumber(): string;
 
     public function getStreetAndBuildingNumber(): string;
