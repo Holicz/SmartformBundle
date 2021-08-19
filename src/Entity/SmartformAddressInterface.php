@@ -24,9 +24,9 @@ interface SmartformAddressInterface
 
     public function getStreet(): string;
 
-    public function setHouseNumber(string $houseNumber): void;
+    public function setHouseNumber(?string $houseNumber): void;
 
-    public function getHouseNumber(): string;
+    public function getHouseNumber(): ?string;
 
     public function setOrientationNumber(?string $orientationNumber): void;
 

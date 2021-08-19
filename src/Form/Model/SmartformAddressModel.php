@@ -46,7 +46,7 @@ final class SmartformAddressModel
      * @Assert\Expression("this.houseNumber or this.evidenceNumber", message="Číslo popisné nebo evidenční je povinné")
      * @Assert\Length(max="255", maxMessage="Číslo popisné může mít maximálně {{ limit }} znaků")
      */
-    public string $houseNumber;
+    public ?string $houseNumber = null;
 
     /**
      * @Assert\Length(max="255", maxMessage="Číslo orientační může mít maximálně {{ limit }} znaků")

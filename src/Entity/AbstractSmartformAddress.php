@@ -16,7 +16,7 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
 
     private string $street;
 
-    private string $houseNumber;
+    private ?string $houseNumber;
 
     private ?string $orientationNumber;
 
@@ -77,12 +77,12 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         return $this->street;
     }
 
-    public function setHouseNumber(string $houseNumber): void
+    public function setHouseNumber(?string $houseNumber): void
     {
         $this->houseNumber = $houseNumber;
     }
 
-    public function getHouseNumber(): string
+    public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
     }
@@ -117,7 +117,7 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
             return 'ev.č. ' . $this->getEvidenceNumber();
         }
 
-        return $this->getHouseNumber();
+        return $this->getHouseNumber() ?? '';
     }
 
     public function getStreetAndBuildingNumber(): string

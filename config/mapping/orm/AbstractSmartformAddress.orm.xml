@@ -12,7 +12,7 @@
 
         <field name="street"/>
 
-        <field name="houseNumber"/>
+        <field name="houseNumber" nullable="true"/>
 
         <field name="orientationNumber" nullable="true"/>
 
