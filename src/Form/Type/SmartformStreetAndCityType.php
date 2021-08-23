@@ -91,6 +91,13 @@ class SmartformStreetAndCityType extends AbstractType
                 ]
             )
             ->add(
+                'evidenceNumber',
+                HiddenType::class,
+                [
+                    'attr' => ['class' => 'smartform-field-NUMBER_EVIDENCNI'],
+                ]
+            )
+            ->add(
                 'zipCode',
                 HiddenType::class,
                 [

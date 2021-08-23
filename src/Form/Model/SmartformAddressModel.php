@@ -43,15 +43,20 @@ final class SmartformAddressModel
     public string $cityPart;
 
     /**
-     * @Assert\NotBlank(message="Číslo popisné je povinné")
+     * @Assert\Expression("this.houseNumber or this.evidenceNumber", message="Číslo popisné nebo evidenční je povinné")
      * @Assert\Length(max="255", maxMessage="Číslo popisné může mít maximálně {{ limit }} znaků")
      */
-    public string $houseNumber;
+    public ?string $houseNumber = null;
 
     /**
      * @Assert\Length(max="255", maxMessage="Číslo orientační může mít maximálně {{ limit }} znaků")
      */
     public ?string $orientationNumber = null;
+
+    /**
+     * @Assert\Length(max="255", maxMessage="Číslo evidenční může mít maximálně {{ limit }} znaků")
+     */
+    public ?string $evidenceNumber = null;
 
     /**
      * @Assert\NotBlank(message="Město je povinné")
@@ -99,6 +104,7 @@ final class SmartformAddressModel
         $model->street = $entity->getStreet();
         $model->houseNumber = $entity->getHouseNumber();
         $model->orientationNumber = $entity->getOrientationNumber();
+        $model->evidenceNumber = $entity->getEvidenceNumber();
         $model->district = $entity->getDistrict();
         $model->city = $entity->getCity();
         $model->zipCode = $entity->getZipCode();
@@ -124,6 +130,7 @@ final class SmartformAddressModel
         $smartformAddressModel->cityPart = $data['city_part'];
         $smartformAddressModel->houseNumber = $data['house_number'];
         $smartformAddressModel->orientationNumber = $data['orientation_number'];
+        $smartformAddressModel->evidenceNumber = $data['evidence_number'];
         $smartformAddressModel->city = $data['city'];
         $smartformAddressModel->zipCode = $data['zip'];
         $smartformAddressModel->district = $data['district'];

@@ -18,6 +18,7 @@ final class SmartformAddressMapper
         $entity->setStreet($street);
         $entity->setHouseNumber($model->houseNumber);
         $entity->setOrientationNumber($model->orientationNumber);
+        $entity->setEvidenceNumber($model->evidenceNumber);
         $entity->setCity($model->city);
         $entity->setZipCode($model->zipCode);
         $entity->setDistrict($model->district);
@@ -34,6 +35,7 @@ final class SmartformAddressMapper
         $abstractAddressModel->street = $abstractAddress->getStreet();
         $abstractAddressModel->houseNumber = $abstractAddress->getHouseNumber();
         $abstractAddressModel->orientationNumber = $abstractAddress->getOrientationNumber();
+        $abstractAddressModel->evidenceNumber = $abstractAddress->getEvidenceNumber();
         $abstractAddressModel->district = $abstractAddress->getDistrict();
         $abstractAddressModel->city = $abstractAddress->getCity();
         $abstractAddressModel->zipCode = $abstractAddress->getZipCode();

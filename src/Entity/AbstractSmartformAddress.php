@@ -16,9 +16,11 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
 
     private string $street;
 
-    private string $houseNumber;
+    private ?string $houseNumber;
 
     private ?string $orientationNumber;
+
+    private ?string $evidenceNumber;
 
     private string $city;
 
@@ -75,12 +77,12 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         return $this->street;
     }
 
-    public function setHouseNumber(string $houseNumber): void
+    public function setHouseNumber(?string $houseNumber): void
     {
         $this->houseNumber = $houseNumber;
     }
 
-    public function getHouseNumber(): string
+    public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
     }
@@ -95,13 +97,27 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         return $this->orientationNumber;
     }
 
+    public function setEvidenceNumber(?string $evidenceNumber): void
+    {
+        $this->evidenceNumber = $evidenceNumber;
+    }
+
+    public function getEvidenceNumber(): ?string
+    {
+        return $this->evidenceNumber;
+    }
+
     public function getBuildingNumber(): string
     {
-        if (!$this->getOrientationNumber()) {
-            return $this->getHouseNumber();
+        if ($this->getOrientationNumber()) {
+            return $this->getHouseNumber() . '/' . $this->getOrientationNumber();
         }
 
-        return $this->getHouseNumber() . '/' . $this->getOrientationNumber();
+        if ($this->getEvidenceNumber()) {
+            return 'ev.č. ' . $this->getEvidenceNumber();
+        }
+
+        return $this->getHouseNumber() ?? '';
     }
 
     public function getStreetAndBuildingNumber(): string
@@ -176,5 +192,6 @@ abstract class AbstractSmartformAddress implements SmartformAddressInterface
         $this->setDistrict($model->district);
         $this->setRegion($model->region);
         $this->setCountry($model->country);
+        $this->setEvidenceNumber($model->evidenceNumber);
     }
 }
